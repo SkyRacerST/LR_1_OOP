@@ -1,4 +1,4 @@
-<UserControl x:Class="LR_1_Default.Views.DefaultBindingView"
+<UserControl x:Class="LR_1_Toolkit.Views.DefaultBindingView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="#ECF0F1">
@@ -23,7 +23,7 @@
                     <TextBlock Text="Значение обновляется при потере фокуса" FontStyle="Italic" Foreground="Gray" Margin="5,0,0,0"/>
 
                     <TextBlock Text="Отображаемый текст (привязан к тому же свойству):" FontWeight="SemiBold" Margin="0,15,0,0"/>
-                    <TextBox Text="{Binding UserInput, Mode=OneWay}" Height="35" IsReadOnly="True" Background="#F0F0F0"/>
+                    <TextBox Text="{Binding DisplayText, Mode=OneWay}" Height="35" IsReadOnly="True" Background="#F0F0F0"/>
 
                     <Separator Margin="0,15,0,15"/>
 

@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace LR_1_Default.Converters
+namespace LR_1_Toolkit.Converters
 {
     public class GreaterThanOrEqualConverter : IValueConverter
     {

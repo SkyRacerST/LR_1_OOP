@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace LR_1_Default
+namespace LR_1_Toolkit
 {
     public partial class App : Application
     {

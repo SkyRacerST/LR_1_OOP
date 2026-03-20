@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace LR_1_Default.Models
+namespace LR_1_Toolkit.Models
 {
     public class UserModel : INotifyPropertyChanged
     {

@@ -1,8 +1,9 @@
-using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+using LR_1_Toolkit.ViewModels;
 
-namespace LR_1_Default.ViewModels
+namespace LR_1_Toolkit.ViewModels
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public partial class MainWindowViewModel : ObservableObject
     {
         public DefaultBindingViewModel DefaultBindingVM { get; set; }
         public TwoWayBindingViewModel TwoWayBindingVM { get; set; }
@@ -17,13 +18,6 @@ namespace LR_1_Default.ViewModels
             OneTimeBindingVM = new OneTimeBindingViewModel();
             OneWayBindingVM = new OneWayBindingViewModel();
             TriggersVM = new TriggersViewModel();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

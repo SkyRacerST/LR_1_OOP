@@ -1,73 +1,50 @@
-using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
-using System.Linq;
 
-namespace LR_1_Default.ViewModels
+namespace LR_1_Toolkit.ViewModels
 {
-    public class TriggersViewModel : INotifyPropertyChanged
+    public partial class TriggersViewModel : ObservableObject
     {
-        private bool _isEnabled;
-        private bool _isVisible;
-        private string _inputText;
-        private int _selectedIndex;
+        [ObservableProperty]
+        private bool _isEnabled = true;
+
+        [ObservableProperty]
+        private bool _isVisible = true;
+
+        [ObservableProperty]
+        private int _selectedIndex = -1;
+
+        [ObservableProperty]
         private ObservableCollection<string> _items;
 
-        public bool IsEnabled
-        {
-            get => _isEnabled;
-            set
-            {
-                _isEnabled = value;
-                OnPropertyChanged(nameof(IsEnabled));
-                OnPropertyChanged(nameof(ButtonText));
-            }
-        }
+        private string _inputText = "";
 
-        public string ButtonText => IsEnabled ? "Кнопка включена" : "Кнопка отключена";
-
-        public bool IsVisible
-        {
-            get => _isVisible;
-            set
-            {
-                _isVisible = value;
-                OnPropertyChanged(nameof(IsVisible));
-            }
-        }
-
+        // Используем полное свойство для InputText с вызовом OnPropertyChanged
         public string InputText
         {
             get => _inputText;
             set
             {
-                _inputText = value;
-                OnPropertyChanged(nameof(InputText));
-                OnPropertyChanged(nameof(ValidationMessage));
+                if (SetProperty(ref _inputText, value))
+                {
+                    OnPropertyChanged(nameof(ValidationMessage));
+                }
             }
         }
+
+        public string ButtonText => IsEnabled ? "Кнопка включена" : "Кнопка отключена";
 
         public string ValidationMessage
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(_inputText))
+                if (string.IsNullOrWhiteSpace(InputText))
                     return "⚠️ Поле не может быть пустым";
-                if (_inputText.Length < 3)
+                if (InputText.Length < 3)
                     return "⚠️ Минимум 3 символа";
-                if (_inputText.Length > 20)
+                if (InputText.Length > 20)
                     return "⚠️ Максимум 20 символов";
                 return "✓ Корректный ввод";
-            }
-        }
-
-        public int SelectedIndex
-        {
-            get => _selectedIndex;
-            set
-            {
-                _selectedIndex = value;
-                OnPropertyChanged(nameof(SelectedIndex));
-                OnPropertyChanged(nameof(SelectionMessage));
             }
         }
 
@@ -75,29 +52,15 @@ namespace LR_1_Default.ViewModels
         {
             get
             {
-                if (_selectedIndex < 0 || _selectedIndex >= _items.Count)
+                if (SelectedIndex < 0 || SelectedIndex >= Items.Count)
                     return "Элемент не выбран";
-                return $"Выбрано: {_items[_selectedIndex]}";
-            }
-        }
-
-        public ObservableCollection<string> Items
-        {
-            get => _items;
-            set
-            {
-                _items = value;
-                OnPropertyChanged(nameof(Items));
+                return $"Выбрано: {Items[SelectedIndex]}";
             }
         }
 
         public TriggersViewModel()
         {
-            _isEnabled = true;
-            _isVisible = true;
-            _inputText = "";
-            _selectedIndex = -1;
-            _items = new ObservableCollection<string>
+            Items = new ObservableCollection<string>
             {
                 "Вариант 1",
                 "Вариант 2",
@@ -106,21 +69,15 @@ namespace LR_1_Default.ViewModels
             };
         }
 
-        public void ToggleEnabled()
+        // Частичные методы для обновления связанных свойств
+        partial void OnIsEnabledChanged(bool value)
         {
-            IsEnabled = !IsEnabled;
+            OnPropertyChanged(nameof(ButtonText));
         }
 
-        public void ToggleVisibility()
+        partial void OnSelectedIndexChanged(int value)
         {
-            IsVisible = !IsVisible;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            OnPropertyChanged(nameof(SelectionMessage));
         }
     }
 }

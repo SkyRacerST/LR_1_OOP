@@ -1,82 +1,68 @@
-using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
-namespace LR_1_Default.ViewModels
+namespace LR_1_Toolkit.ViewModels
 {
-    public class OneWayBindingViewModel : INotifyPropertyChanged
+    public partial class OneWayBindingViewModel : ObservableObject
     {
-        private string _sourceText;
-        private int _counter;
-        private double _sliderValue;
+        private string _sourceText = "Введите текст здесь...";
+        private int _counter = 0;
 
+        [ObservableProperty]
+        private double _sliderValue = 50;
+
+        // Используем полное свойство с вызовом OnPropertyChanged для обновления ProcessedText
         public string SourceText
         {
             get => _sourceText;
             set
             {
-                _sourceText = value;
-                OnPropertyChanged(nameof(SourceText));
-                OnPropertyChanged(nameof(ProcessedText));
+                if (SetProperty(ref _sourceText, value))
+                {
+                    OnPropertyChanged(nameof(ProcessedText));
+                }
             }
         }
 
-        public string ProcessedText
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_sourceText))
-                    return "Обработано: (пусто) | Длина: 0";
-                return $"Обработано: {_sourceText.ToUpper()} | Длина: {_sourceText.Length}";
-            }
-        }
-
+        // Свойство для счетчика с вызовом OnPropertyChanged для CounterDisplay
         public int Counter
         {
             get => _counter;
             set
             {
-                _counter = value;
-                OnPropertyChanged(nameof(Counter));
-                OnPropertyChanged(nameof(CounterDisplay));
+                if (SetProperty(ref _counter, value))
+                {
+                    OnPropertyChanged(nameof(CounterDisplay));
+                }
             }
         }
 
-        public string CounterDisplay => $"Количество кликов: {_counter}";
-
-        public double SliderValue
+        // Вычисляемое свойство
+        public string ProcessedText
         {
-            get => _sliderValue;
-            set
+            get
             {
-                _sliderValue = value;
-                OnPropertyChanged(nameof(SliderValue));
-                OnPropertyChanged(nameof(SliderDisplay));
+                if (string.IsNullOrEmpty(SourceText))
+                    return "Обработано: (пусто) | Длина: 0";
+                return $"Обработано: {SourceText.ToUpper()} | Длина: {SourceText.Length}";
             }
         }
 
-        public string SliderDisplay => $"Текущее значение: {_sliderValue:F0}";
+        public string CounterDisplay => $"Количество кликов: {Counter}";
 
-        public OneWayBindingViewModel()
-        {
-            _sourceText = "Введите текст здесь...";
-            _counter = 0;
-            _sliderValue = 50;
-        }
+        public string SliderDisplay => $"Текущее значение: {SliderValue:F0}";
 
-        public void IncrementCounter()
+        // Релейные команды
+        [RelayCommand]
+        private void Increment()
         {
             Counter++;
         }
 
-        public void ResetCounter()
+        [RelayCommand]
+        private void Reset()
         {
             Counter = 0;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

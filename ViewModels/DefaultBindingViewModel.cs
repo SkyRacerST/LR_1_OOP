@@ -1,50 +1,30 @@
-using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace LR_1_Default.ViewModels
+namespace LR_1_Toolkit.ViewModels
 {
-    public class DefaultBindingViewModel : INotifyPropertyChanged
+    public partial class DefaultBindingViewModel : ObservableObject
     {
-        private string _userInput;
-        private int _sliderValue;
+        private string _userInput = "Введите текст...";
 
+        [ObservableProperty]
+        private int _sliderValue = 50;
+
+        // Используем полное свойство с вызовом OnPropertyChanged для обновления DisplayText
         public string UserInput
         {
             get => _userInput;
             set
             {
-                _userInput = value;
-                OnPropertyChanged(nameof(UserInput));
-                OnPropertyChanged(nameof(DisplayText)); // Обновляем DisplayText при изменении UserInput
+                if (SetProperty(ref _userInput, value))
+                {
+                    OnPropertyChanged(nameof(DisplayText));
+                }
             }
         }
 
-        // DisplayText теперь просто возвращает UserInput
-        public string DisplayText => _userInput;
-
-        public int SliderValue
-        {
-            get => _sliderValue;
-            set
-            {
-                _sliderValue = value;
-                OnPropertyChanged(nameof(SliderValue));
-                OnPropertyChanged(nameof(SliderValueDisplay));
-            }
-        }
+        // Вычисляемое свойство
+        public string DisplayText => UserInput;
 
         public string SliderValueDisplay => $"Значение: {SliderValue}";
-
-        public DefaultBindingViewModel()
-        {
-            _userInput = "Введите текст...";
-            _sliderValue = 50;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

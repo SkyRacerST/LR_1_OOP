@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using LR_1_Default.ViewModels;
+using LR_1_Toolkit.ViewModels;
 
-namespace LR_1_Default
+namespace LR_1_Toolkit
 {
     public partial class MainWindow : Window
     {

@@ -1,23 +1,28 @@
-using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace LR_1_Default.ViewModels
+namespace LR_1_Toolkit.ViewModels
 {
-    public class TwoWayBindingViewModel : INotifyPropertyChanged
+    public partial class TwoWayBindingViewModel : ObservableObject
     {
-        private string _firstName;
-        private string _lastName;
-        private string _fullName;
-        private bool _isChecked;
-        private double _progressValue;
+        private string _firstName = "Иван";
+        private string _lastName = "Иванов";
 
+        [ObservableProperty]
+        private bool _isChecked = true;
+
+        [ObservableProperty]
+        private double _progressValue = 50;
+
+        // Используем полные свойства с вызовом OnPropertyChanged для обновления FullName
         public string FirstName
         {
             get => _firstName;
             set
             {
-                _firstName = value;
-                OnPropertyChanged(nameof(FirstName));
-                UpdateFullName();
+                if (SetProperty(ref _firstName, value))
+                {
+                    OnPropertyChanged(nameof(FullName));
+                }
             }
         }
 
@@ -26,67 +31,18 @@ namespace LR_1_Default.ViewModels
             get => _lastName;
             set
             {
-                _lastName = value;
-                OnPropertyChanged(nameof(LastName));
-                UpdateFullName();
+                if (SetProperty(ref _lastName, value))
+                {
+                    OnPropertyChanged(nameof(FullName));
+                }
             }
         }
 
-        public string FullName
-        {
-            get => _fullName;
-            private set
-            {
-                _fullName = value;
-                OnPropertyChanged(nameof(FullName));
-            }
-        }
-
-        public bool IsChecked
-        {
-            get => _isChecked;
-            set
-            {
-                _isChecked = value;
-                OnPropertyChanged(nameof(IsChecked));
-                OnPropertyChanged(nameof(StatusText));
-            }
-        }
+        // Вычисляемое свойство
+        public string FullName => $"{FirstName} {LastName}";
 
         public string StatusText => IsChecked ? "Включено" : "Отключено";
 
-        public double ProgressValue
-        {
-            get => _progressValue;
-            set
-            {
-                _progressValue = value;
-                OnPropertyChanged(nameof(ProgressValue));
-                OnPropertyChanged(nameof(ProgressDisplay));
-            }
-        }
-
-        public string ProgressDisplay => $"Прогресс: {_progressValue:F0}%";
-
-        public TwoWayBindingViewModel()
-        {
-            _firstName = "Иван";
-            _lastName = "Иванов";
-            _isChecked = true;
-            _progressValue = 50;
-            UpdateFullName();
-        }
-
-        private void UpdateFullName()
-        {
-            FullName = $"{FirstName} {LastName}";
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public string ProgressDisplay => $"Прогресс: {ProgressValue:F0}%";
     }
 }
