@@ -1,0 +1,84 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Main -->
+    <sys:String x:Key="AppTitle">WPF MVVM Demo - Binding Types</sys:String>
+    <sys:String x:Key="LanguageSelection">Language Selection:</sys:String>
+    <sys:String x:Key="Russian">Russian</sys:String>
+    <sys:String x:Key="English">English</sys:String>
+    <sys:String x:Key="DefaultBinding">Default Binding</sys:String>
+    <sys:String x:Key="TwoWayBinding">Two-Way Binding</sys:String>
+    <sys:String x:Key="OneTimeBinding">One-Time Binding</sys:String>
+    <sys:String x:Key="OneWayBinding">One-Way Binding</sys:String>
+    <sys:String x:Key="Triggers">Triggers</sys:String>
+
+    <!-- DefaultBindingView -->
+    <sys:String x:Key="DefaultBindingTitle">Default Binding Demo</sys:String>
+    <sys:String x:Key="WhatIsDefaultBinding">What is Default Binding?</sys:String>
+    <sys:String x:Key="DefaultBindingDescription">Default binding in WPF is TwoWay for editable controls (TextBox, CheckBox, etc.) and OneWay for read-only elements. Source update occurs on focus loss for TextBox.</sys:String>
+    <sys:String x:Key="DirectBindingToViewModel">Direct Binding to ViewModel Property</sys:String>
+    <sys:String x:Key="TextBoxWithDefaultBinding">TextBox with default binding:</sys:String>
+    <sys:String x:Key="ValueUpdatesOnLostFocus">Value updates on focus loss</sys:String>
+    <sys:String x:Key="DisplayedText">Displayed text (bound to the same property):</sys:String>
+    <sys:String x:Key="SliderWithDefaultBinding">Slider with default binding</sys:String>
+    <sys:String x:Key="ElementToElementBindingExample">Element-to-Element Binding Example</sys:String>
+    <sys:String x:Key="SourceTextBox">Source TextBox:</sys:String>
+    <sys:String x:Key="TargetTextBlock">Target TextBlock (bound to source TextBox):</sys:String>
+    <sys:String x:Key="ElementToElementBindingDescription">This demonstrates direct element-to-element binding without using ViewModel</sys:String>
+
+    <!-- TwoWayBindingView -->
+    <sys:String x:Key="TwoWayBindingTitle">Two-Way Binding Demo</sys:String>
+    <sys:String x:Key="WhatIsTwoWayBinding">What is Two-Way Binding?</sys:String>
+    <sys:String x:Key="TwoWayBindingDescription">Two-way binding synchronizes source and target. Changes in the UI update the ViewModel, and changes in the ViewModel automatically update the UI.</sys:String>
+    <sys:String x:Key="UserInformation">User Information</sys:String>
+    <sys:String x:Key="FirstName">First Name:</sys:String>
+    <sys:String x:Key="LastName">Last Name:</sys:String>
+    <sys:String x:Key="FullName">Full Name:</sys:String>
+    <sys:String x:Key="FullNameAutoUpdate">Type text in the fields above - full name updates automatically!</sys:String>
+    <sys:String x:Key="CheckBoxBinding">CheckBox Binding</sys:String>
+    <sys:String x:Key="EnableFeature">Enable Feature</sys:String>
+    <sys:String x:Key="SliderBinding">Slider Binding</sys:String>
+
+    <!-- OneTimeBindingView -->
+    <sys:String x:Key="OneTimeBindingTitle">One-Time Binding Demo</sys:String>
+    <sys:String x:Key="WhatIsOneTimeBinding">What is One-Time Binding?</sys:String>
+    <sys:String x:Key="OneTimeBindingDescription">One-time binding sets the target property once from the source at initialization. Subsequent source changes do NOT affect the target. Ideal for static content like titles, labels, and configuration data.</sys:String>
+    <sys:String x:Key="StaticInformation">Static Information (set once on load)</sys:String>
+    <sys:String x:Key="WelcomeMessageLabel">Welcome Message:</sys:String>
+    <sys:String x:Key="ApplicationTitleLabel">Application Title:</sys:String>
+    <sys:String x:Key="LoadTime">Load Time:</sys:String>
+    <sys:String x:Key="Version">Version:</sys:String>
+    <sys:String x:Key="Description">Description</sys:String>
+    <sys:String x:Key="OneTimeBindingNote">⚠️ Note: This content was set once at application startup and cannot be changed dynamically.</sys:String>
+
+    <!-- OneWayBindingView -->
+    <sys:String x:Key="OneWayBindingTitle">One-Way Binding Demo</sys:String>
+    <sys:String x:Key="WhatIsOneWayBinding">What is One-Way Binding?</sys:String>
+    <sys:String x:Key="OneWayBindingDescription">One-way binding updates the target when the source changes, but target changes do NOT update the source. Useful for displaying read-only derived data.</sys:String>
+    <sys:String x:Key="SourceDataEditable">Source Data (editable)</sys:String>
+    <sys:String x:Key="SourceChangesAffectDisplay">Source changes affect the display below:</sys:String>
+    <sys:String x:Key="ProcessedOutputReadOnly">Processed Output (read-only - one-way binding)</sys:String>
+    <sys:String x:Key="ProcessedTextDescription">Processed text is formed from the source and updates automatically, but cannot be edited directly.</sys:String>
+    <sys:String x:Key="CounterExample">Counter Example</sys:String>
+    <sys:String x:Key="Increment">Increment</sys:String>
+    <sys:String x:Key="Reset">Reset</sys:String>
+    <sys:String x:Key="CounterDescription">Counter value is stored in ViewModel and displayed with one-way binding</sys:String>
+    <sys:String x:Key="SliderExample">Slider Example</sys:String>
+
+    <!-- TriggersView -->
+    <sys:String x:Key="TriggersDemo">Triggers Demo</sys:String>
+    <sys:String x:Key="PropertyTriggers">Property Triggers</sys:String>
+    <sys:String x:Key="PropertyTriggersDescription">Property triggers apply styles when a control property reaches a specific value.</sys:String>
+    <sys:String x:Key="DataTriggers">Data Triggers</sys:String>
+    <sys:String x:Key="DataTriggersDescription">Data triggers respond to changes in ViewModel values.</sys:String>
+    <sys:String x:Key="ShowText">Show Text</sys:String>
+    <sys:String x:Key="TextVisibleWhenChecked">This text is visible when checkbox is checked</sys:String>
+    <sys:String x:Key="MultiDataTrigger">MultiDataTrigger</sys:String>
+    <sys:String x:Key="MultiDataTriggerDescription">MultiDataTrigger applies styles when multiple conditions are met simultaneously.</sys:String>
+    <sys:String x:Key="MultiDataTriggerConditions">Conditions: empty (red), 1-2 characters (orange), 3-20 characters (green), >20 characters (red)</sys:String>
+    <sys:String x:Key="EventTriggers">Event Triggers</sys:String>
+    <sys:String x:Key="EventTriggersDescription">Event triggers respond to mouse events such as hover and selection.</sys:String>
+    <sys:String x:Key="EventTriggersNote">Hover over items for MouseOver trigger, click for selection trigger</sys:String>
+
+</ResourceDictionary>

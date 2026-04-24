@@ -8,7 +8,7 @@ namespace LR_1_Default
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
+            DataContext = new XamlLocalizedMainWindowViewModel();
         }
     }
 }

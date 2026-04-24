@@ -5,15 +5,15 @@
 
     <ScrollViewer>
         <StackPanel Margin="20">
-            <TextBlock Text="Демонстрация триггеров" FontSize="24" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20"/>
+            <TextBlock Text="{DynamicResource TriggersDemo}" FontSize="24" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20"/>
 
             <!-- Property Triggers -->
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <TextBlock Text="Property Триггеры" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
-                    <TextBlock Text="Property триггеры применяют стили, когда свойство элемента управления достигает определенного значения." TextWrapping="Wrap" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource PropertyTriggers}" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource PropertyTriggersDescription}" TextWrapping="Wrap" Margin="0,0,0,10"/>
 
-                    <CheckBox Content="Включить кнопку" IsChecked="{Binding IsEnabled}" Margin="5"/>
+                    <CheckBox Content="{Binding ButtonText}" IsChecked="{Binding IsEnabled}" Margin="5"/>
                     <Button Content="{Binding ButtonText}" Width="150" Height="35" Margin="5" IsEnabled="{Binding IsEnabled}"/>
                 </StackPanel>
             </Border>
@@ -21,12 +21,12 @@
             <!-- Data Triggers -->
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <TextBlock Text="Data Триггеры" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
-                    <TextBlock Text="Data триггеры реагируют на изменения значений в ViewModel." TextWrapping="Wrap" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource DataTriggers}" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource DataTriggersDescription}" TextWrapping="Wrap" Margin="0,0,0,10"/>
 
-                    <CheckBox Content="Показать текст" IsChecked="{Binding IsVisible}" Margin="5"/>
+                    <CheckBox Content="{DynamicResource ShowText}" IsChecked="{Binding IsVisible}" Margin="5"/>
                     <Border Background="#E8F8F5" Padding="10" CornerRadius="5" Margin="5">
-                        <TextBlock Text="Этот текст виден, когда флажок установлен">
+                        <TextBlock Text="{DynamicResource TextVisibleWhenChecked}">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="Visibility" Value="Visible"/>
@@ -45,8 +45,8 @@
             <!-- MultiDataTrigger -->
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <TextBlock Text="MultiDataTrigger" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
-                    <TextBlock Text="MultiDataTrigger применяет стили, когда выполняются несколько условий одновременно." TextWrapping="Wrap" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource MultiDataTrigger}" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource MultiDataTriggerDescription}" TextWrapping="Wrap" Margin="0,0,0,10"/>
 
                     <TextBox Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}" Height="35" Margin="5">
                         <TextBox.Style>
@@ -55,35 +55,27 @@
                                 <Setter Property="BorderThickness" Value="1"/>
                                 <Setter Property="Background" Value="White"/>
                                 <Style.Triggers>
-                                    <!-- Пустой ввод -->
                                     <DataTrigger Binding="{Binding InputText.Length}" Value="0">
                                         <Setter Property="BorderBrush" Value="#E74C3C"/>
                                         <Setter Property="BorderThickness" Value="2"/>
                                         <Setter Property="Background" Value="#FDEDEC"/>
-                                        <Setter Property="ToolTip" Value="Поле не может быть пустым"/>
                                     </DataTrigger>
-                                    <!-- Короткий ввод (1-2 символа) -->
                                     <DataTrigger Binding="{Binding InputText.Length}" Value="1">
                                         <Setter Property="BorderBrush" Value="#F39C12"/>
                                         <Setter Property="BorderThickness" Value="2"/>
-                                        <Setter Property="ToolTip" Value="Минимум 3 символа"/>
                                     </DataTrigger>
                                     <DataTrigger Binding="{Binding InputText.Length}" Value="2">
                                         <Setter Property="BorderBrush" Value="#F39C12"/>
                                         <Setter Property="BorderThickness" Value="2"/>
-                                        <Setter Property="ToolTip" Value="Минимум 3 символа"/>
                                     </DataTrigger>
-                                    <!-- Длинный ввод (более 20 символов) -->
                                     <DataTrigger Binding="{Binding InputText.Length}" Value="21">
                                         <Setter Property="BorderBrush" Value="#E74C3C"/>
                                         <Setter Property="BorderThickness" Value="2"/>
-                                        <Setter Property="ToolTip" Value="Максимум 20 символов"/>
                                     </DataTrigger>
                                     <DataTrigger Binding="{Binding InputText.Length}" Value="22">
                                         <Setter Property="BorderBrush" Value="#E74C3C"/>
                                         <Setter Property="BorderThickness" Value="2"/>
                                     </DataTrigger>
-                                    <!-- Корректный ввод (3-20 символов) -->
                                     <MultiDataTrigger>
                                         <MultiDataTrigger.Conditions>
                                             <Condition Binding="{Binding InputText.Length, Converter={StaticResource GreaterThanOrEqualConverter}}" Value="3"/>
@@ -92,22 +84,21 @@
                                         <Setter Property="BorderBrush" Value="#27AE60"/>
                                         <Setter Property="BorderThickness" Value="2"/>
                                         <Setter Property="Background" Value="#E8F8F5"/>
-                                        <Setter Property="ToolTip" Value="Корректный ввод"/>
                                     </MultiDataTrigger>
                                 </Style.Triggers>
                             </Style>
                         </TextBox.Style>
                     </TextBox>
                     <TextBlock Text="{Binding ValidationMessage}" FontWeight="SemiBold" Margin="5" FontSize="12"/>
-                    <TextBlock Text="Условия: пусто (красный), 1-2 символа (оранжевый), 3-20 символов (зеленый), >20 символов (красный)" FontStyle="Italic" Foreground="Gray" Margin="5,5,0,0" TextWrapping="Wrap"/>
+                    <TextBlock Text="{DynamicResource MultiDataTriggerConditions}" FontStyle="Italic" Foreground="Gray" Margin="5,5,0,0" TextWrapping="Wrap"/>
                 </StackPanel>
             </Border>
 
             <!-- Event Triggers -->
             <Border Background="White" CornerRadius="8" Padding="15">
                 <StackPanel>
-                    <TextBlock Text="Event Триггеры" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
-                    <TextBlock Text="Event триггеры реагируют на события мыши, такие как наведение и выбор." TextWrapping="Wrap" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource EventTriggers}" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource EventTriggersDescription}" TextWrapping="Wrap" Margin="0,0,0,10"/>
 
                     <ListBox ItemsSource="{Binding Items}" SelectedIndex="{Binding SelectedIndex}" Height="120" Margin="5">
                         <ListBox.ItemContainerStyle>
@@ -130,7 +121,7 @@
                         </ListBox.ItemContainerStyle>
                     </ListBox>
                     <TextBlock Text="{Binding SelectionMessage}" Margin="5" FontWeight="SemiBold" FontSize="12"/>
-                    <TextBlock Text="Наведите курсор на элементы для отображения триггера MouseOver, нажмите для отображения триггера выбора" FontStyle="Italic" Foreground="Gray" Margin="5,5,0,0" TextWrapping="Wrap"/>
+                    <TextBlock Text="{DynamicResource EventTriggersNote}" FontStyle="Italic" Foreground="Gray" Margin="5,5,0,0" TextWrapping="Wrap"/>
                 </StackPanel>
             </Border>
         </StackPanel>

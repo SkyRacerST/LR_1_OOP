@@ -7,6 +7,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/CustomStyles.xaml"/>
+                <!-- Русский словарь по умолчанию -->
+                <ResourceDictionary Source="Resources/StringResources.ru.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <converters:GreaterThanOrEqualConverter x:Key="GreaterThanOrEqualConverter"/>

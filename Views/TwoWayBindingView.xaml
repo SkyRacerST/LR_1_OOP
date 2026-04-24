@@ -5,18 +5,18 @@
 
     <ScrollViewer>
         <StackPanel Margin="20">
-            <TextBlock Text="Демонстрация двухсторонней привязки" FontSize="24" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20"/>
+            <TextBlock Text="{DynamicResource TwoWayBindingTitle}" FontSize="24" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20"/>
 
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <TextBlock Text="Что такое двухсторонняя привязка?" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
-                    <TextBlock Text="Двухсторонняя привязка синхронизирует источник и цель. Изменения в интерфейсе обновляют ViewModel, а изменения в ViewModel автоматически обновляют интерфейс." TextWrapping="Wrap"/>
+                    <TextBlock Text="{DynamicResource WhatIsTwoWayBinding}" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource TwoWayBindingDescription}" TextWrapping="Wrap"/>
                 </StackPanel>
             </Border>
 
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <Label Content="Информация о пользователе"/>
+                    <Label Content="{DynamicResource UserInformation}"/>
 
                     <Grid Margin="0,10,0,0">
                         <Grid.ColumnDefinitions>
@@ -29,31 +29,31 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Text="Имя:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                        <TextBlock Text="{DynamicResource FirstName}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold"/>
                         <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="1" Height="35" Margin="5,0,0,0"/>
 
-                        <TextBlock Text="Фамилия:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,10,0,0"/>
+                        <TextBlock Text="{DynamicResource LastName}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,10,0,0"/>
                         <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" Height="35" Margin="5,10,0,0"/>
 
-                        <TextBlock Text="Полное имя:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,10,0,0"/>
+                        <TextBlock Text="{DynamicResource FullName}" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,10,0,0"/>
                         <TextBlock Text="{Binding FullName}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="5,10,0,0" FontSize="16" FontWeight="Bold" Foreground="#3498DB"/>
                     </Grid>
 
-                    <TextBlock Text="Вводите текст в поля выше - полное имя обновляется автоматически!" FontStyle="Italic" Foreground="Gray" Margin="5,15,0,0"/>
+                    <TextBlock Text="{DynamicResource FullNameAutoUpdate}" FontStyle="Italic" Foreground="Gray" Margin="5,15,0,0"/>
                 </StackPanel>
             </Border>
 
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <Label Content="Привязка флажка"/>
-                    <CheckBox Content="Включить функцию" IsChecked="{Binding IsChecked}" Margin="5"/>
+                    <Label Content="{DynamicResource CheckBoxBinding}"/>
+                    <CheckBox Content="{DynamicResource EnableFeature}" IsChecked="{Binding IsChecked}" Margin="5"/>
                     <TextBlock Text="{Binding StatusText}" FontWeight="Bold" Margin="5,5,0,0"/>
                 </StackPanel>
             </Border>
 
             <Border Background="White" CornerRadius="8" Padding="15">
                 <StackPanel>
-                    <Label Content="Привязка ползунка"/>
+                    <Label Content="{DynamicResource SliderBinding}"/>
                     <Slider Minimum="0" Maximum="100" Value="{Binding ProgressValue}" Height="30"/>
                     <TextBlock Text="{Binding ProgressDisplay}" HorizontalAlignment="Center" FontWeight="Bold" Margin="5"/>
                 </StackPanel>

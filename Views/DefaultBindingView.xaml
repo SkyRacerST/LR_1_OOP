@@ -5,29 +5,29 @@
 
     <ScrollViewer>
         <StackPanel Margin="20">
-            <TextBlock Text="Демонстрация привязки по умолчанию" FontSize="24" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20"/>
+            <TextBlock Text="{DynamicResource DefaultBindingTitle}" FontSize="24" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20"/>
 
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <TextBlock Text="Что такое привязка по умолчанию?" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
-                    <TextBlock Text="Привязка по умолчанию в WPF - это TwoWay для редактируемых элементов управления (TextBox, CheckBox и т.д.) и OneWay для элементов только для чтения. Обновление источника происходит при потере фокуса для TextBox." TextWrapping="Wrap" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource WhatIsDefaultBinding}" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource DefaultBindingDescription}" TextWrapping="Wrap" Margin="0,0,0,10"/>
                 </StackPanel>
             </Border>
 
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <Label Content="Прямая привязка к свойству ViewModel"/>
+                    <Label Content="{DynamicResource DirectBindingToViewModel}"/>
 
-                    <TextBlock Text="TextBox с привязкой по умолчанию:" FontWeight="SemiBold" Margin="0,5,0,0"/>
+                    <TextBlock Text="{DynamicResource TextBoxWithDefaultBinding}" FontWeight="SemiBold" Margin="0,5,0,0"/>
                     <TextBox Text="{Binding UserInput, UpdateSourceTrigger=LostFocus}" Height="35"/>
-                    <TextBlock Text="Значение обновляется при потере фокуса" FontStyle="Italic" Foreground="Gray" Margin="5,0,0,0"/>
+                    <TextBlock Text="{DynamicResource ValueUpdatesOnLostFocus}" FontStyle="Italic" Foreground="Gray" Margin="5,0,0,0"/>
 
-                    <TextBlock Text="Отображаемый текст (привязан к тому же свойству):" FontWeight="SemiBold" Margin="0,15,0,0"/>
+                    <TextBlock Text="{DynamicResource DisplayedText}" FontWeight="SemiBold" Margin="0,15,0,0"/>
                     <TextBox Text="{Binding UserInput, Mode=OneWay}" Height="35" IsReadOnly="True" Background="#F0F0F0"/>
 
                     <Separator Margin="0,15,0,15"/>
 
-                    <Label Content="Ползунок с привязкой по умолчанию"/>
+                    <Label Content="{DynamicResource SliderWithDefaultBinding}"/>
                     <Slider Minimum="0" Maximum="100" Value="{Binding SliderValue}" Height="30" Margin="5"/>
                     <TextBlock Text="{Binding SliderValueDisplay}" FontWeight="Bold" HorizontalAlignment="Center"/>
                 </StackPanel>
@@ -35,12 +35,12 @@
 
             <Border Background="White" CornerRadius="8" Padding="15">
                 <StackPanel>
-                    <Label Content="Пример привязки элемент-к-элементу"/>
-                    <TextBlock Text="Исходный TextBox:" FontWeight="SemiBold"/>
+                    <Label Content="{DynamicResource ElementToElementBindingExample}"/>
+                    <TextBlock Text="{DynamicResource SourceTextBox}" FontWeight="SemiBold"/>
                     <TextBox x:Name="SourceTextBox" Height="35"/>
-                    <TextBlock Text="Целевой TextBlock (привязан к исходному TextBox):" FontWeight="SemiBold" Margin="0,10,0,0"/>
+                    <TextBlock Text="{DynamicResource TargetTextBlock}" FontWeight="SemiBold" Margin="0,10,0,0"/>
                     <TextBlock Text="{Binding Text, ElementName=SourceTextBox}" Background="#F0F0F0" Padding="8" Margin="5"/>
-                    <TextBlock Text="Это демонстрирует прямую привязку элемент-к-элементу без использования ViewModel" FontStyle="Italic" Foreground="Gray" Margin="5,5,0,0"/>
+                    <TextBlock Text="{DynamicResource ElementToElementBindingDescription}" FontStyle="Italic" Foreground="Gray" Margin="5,5,0,0"/>
                 </StackPanel>
             </Border>
         </StackPanel>

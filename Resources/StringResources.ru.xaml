@@ -1,0 +1,84 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Основные -->
+    <sys:String x:Key="AppTitle">WPF MVVM Демо - Типы привязок</sys:String>
+    <sys:String x:Key="LanguageSelection">Выбор языка:</sys:String>
+    <sys:String x:Key="Russian">Русский</sys:String>
+    <sys:String x:Key="English">Английский</sys:String>
+    <sys:String x:Key="DefaultBinding">Привязка по умолчанию</sys:String>
+    <sys:String x:Key="TwoWayBinding">Двухсторонняя привязка</sys:String>
+    <sys:String x:Key="OneTimeBinding">Однократная привязка</sys:String>
+    <sys:String x:Key="OneWayBinding">Однонаправленная привязка</sys:String>
+    <sys:String x:Key="Triggers">Триггеры</sys:String>
+
+    <!-- DefaultBindingView -->
+    <sys:String x:Key="DefaultBindingTitle">Демонстрация привязки по умолчанию</sys:String>
+    <sys:String x:Key="WhatIsDefaultBinding">Что такое привязка по умолчанию?</sys:String>
+    <sys:String x:Key="DefaultBindingDescription">Привязка по умолчанию в WPF - это TwoWay для редактируемых элементов управления (TextBox, CheckBox и т.д.) и OneWay для элементов только для чтения. Обновление источника происходит при потере фокуса для TextBox.</sys:String>
+    <sys:String x:Key="DirectBindingToViewModel">Прямая привязка к свойству ViewModel</sys:String>
+    <sys:String x:Key="TextBoxWithDefaultBinding">TextBox с привязкой по умолчанию:</sys:String>
+    <sys:String x:Key="ValueUpdatesOnLostFocus">Значение обновляется при потере фокуса</sys:String>
+    <sys:String x:Key="DisplayedText">Отображаемый текст (привязан к тому же свойству):</sys:String>
+    <sys:String x:Key="SliderWithDefaultBinding">Ползунок с привязкой по умолчанию</sys:String>
+    <sys:String x:Key="ElementToElementBindingExample">Пример привязки элемент-к-элементу</sys:String>
+    <sys:String x:Key="SourceTextBox">Исходный TextBox:</sys:String>
+    <sys:String x:Key="TargetTextBlock">Целевой TextBlock (привязан к исходному TextBox):</sys:String>
+    <sys:String x:Key="ElementToElementBindingDescription">Это демонстрирует прямую привязку элемент-к-элементу без использования ViewModel</sys:String>
+
+    <!-- TwoWayBindingView -->
+    <sys:String x:Key="TwoWayBindingTitle">Демонстрация двухсторонней привязки</sys:String>
+    <sys:String x:Key="WhatIsTwoWayBinding">Что такое двухсторонняя привязка?</sys:String>
+    <sys:String x:Key="TwoWayBindingDescription">Двухсторонняя привязка синхронизирует источник и цель. Изменения в интерфейсе обновляют ViewModel, а изменения в ViewModel автоматически обновляют интерфейс.</sys:String>
+    <sys:String x:Key="UserInformation">Информация о пользователе</sys:String>
+    <sys:String x:Key="FirstName">Имя:</sys:String>
+    <sys:String x:Key="LastName">Фамилия:</sys:String>
+    <sys:String x:Key="FullName">Полное имя:</sys:String>
+    <sys:String x:Key="FullNameAutoUpdate">Вводите текст в поля выше - полное имя обновляется автоматически!</sys:String>
+    <sys:String x:Key="CheckBoxBinding">Привязка флажка</sys:String>
+    <sys:String x:Key="EnableFeature">Включить функцию</sys:String>
+    <sys:String x:Key="SliderBinding">Привязка ползунка</sys:String>
+
+    <!-- OneTimeBindingView -->
+    <sys:String x:Key="OneTimeBindingTitle">Демонстрация однократной привязки</sys:String>
+    <sys:String x:Key="WhatIsOneTimeBinding">Что такое однократная привязка?</sys:String>
+    <sys:String x:Key="OneTimeBindingDescription">Однократная привязка устанавливает свойство цели один раз из источника при инициализации. Последующие изменения источника НЕ влияют на цель. Идеально подходит для статического контента, такого как заголовки, метки и данные конфигурации.</sys:String>
+    <sys:String x:Key="StaticInformation">Статическая информация (устанавливается один раз при загрузке)</sys:String>
+    <sys:String x:Key="WelcomeMessageLabel">Приветственное сообщение:</sys:String>
+    <sys:String x:Key="ApplicationTitleLabel">Название приложения:</sys:String>
+    <sys:String x:Key="LoadTime">Время загрузки:</sys:String>
+    <sys:String x:Key="Version">Версия:</sys:String>
+    <sys:String x:Key="Description">Описание</sys:String>
+    <sys:String x:Key="OneTimeBindingNote">⚠️ Примечание: Этот контент был установлен один раз при запуске приложения и не может быть изменен динамически.</sys:String>
+
+    <!-- OneWayBindingView -->
+    <sys:String x:Key="OneWayBindingTitle">Демонстрация однонаправленной привязки</sys:String>
+    <sys:String x:Key="WhatIsOneWayBinding">Что такое однонаправленная привязка?</sys:String>
+    <sys:String x:Key="OneWayBindingDescription">Однонаправленная привязка обновляет цель при изменении источника, но изменения цели НЕ обновляют источник. Полезно для отображения производных данных, доступных только для чтения.</sys:String>
+    <sys:String x:Key="SourceDataEditable">Исходные данные (редактируемые)</sys:String>
+    <sys:String x:Key="SourceChangesAffectDisplay">Изменения источника влияют на отображение ниже:</sys:String>
+    <sys:String x:Key="ProcessedOutputReadOnly">Обработанный вывод (только для чтения - однонаправленная привязка)</sys:String>
+    <sys:String x:Key="ProcessedTextDescription">Обработанный текст формируется из источника и обновляется автоматически, но не может быть отредактирован напрямую.</sys:String>
+    <sys:String x:Key="CounterExample">Пример счетчика</sys:String>
+    <sys:String x:Key="Increment">Увеличить</sys:String>
+    <sys:String x:Key="Reset">Сбросить</sys:String>
+    <sys:String x:Key="CounterDescription">Значение счетчика хранится в ViewModel и отображается с однонаправленной привязкой</sys:String>
+    <sys:String x:Key="SliderExample">Пример ползунка</sys:String>
+
+    <!-- TriggersView -->
+    <sys:String x:Key="TriggersDemo">Демонстрация триггеров</sys:String>
+    <sys:String x:Key="PropertyTriggers">Property Триггеры</sys:String>
+    <sys:String x:Key="PropertyTriggersDescription">Property триггеры применяют стили, когда свойство элемента управления достигает определенного значения.</sys:String>
+    <sys:String x:Key="DataTriggers">Data Триггеры</sys:String>
+    <sys:String x:Key="DataTriggersDescription">Data триггеры реагируют на изменения значений в ViewModel.</sys:String>
+    <sys:String x:Key="ShowText">Показать текст</sys:String>
+    <sys:String x:Key="TextVisibleWhenChecked">Этот текст виден, когда флажок установлен</sys:String>
+    <sys:String x:Key="MultiDataTrigger">MultiDataTrigger</sys:String>
+    <sys:String x:Key="MultiDataTriggerDescription">MultiDataTrigger применяет стили, когда выполняются несколько условий одновременно.</sys:String>
+    <sys:String x:Key="MultiDataTriggerConditions">Условия: пусто (красный), 1-2 символа (оранжевый), 3-20 символов (зеленый), >20 символов (красный)</sys:String>
+    <sys:String x:Key="EventTriggers">Event Триггеры</sys:String>
+    <sys:String x:Key="EventTriggersDescription">Event триггеры реагируют на события мыши, такие как наведение и выбор.</sys:String>
+    <sys:String x:Key="EventTriggersNote">Наведите курсор на элементы для отображения триггера MouseOver, нажмите для отображения триггера выбора</sys:String>
+
+</ResourceDictionary>
