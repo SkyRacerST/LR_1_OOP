@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<!-- Main -->
+	<data name="AppTitle" xml:space="preserve">
+    <value>WPF MVVM Demo - Binding Types</value>
+  </data>
+	<data name="LanguageSelection" xml:space="preserve">
+    <value>Language Selection:</value>
+  </data>
+	<data name="Russian" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+	<data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+	<data name="DefaultBinding" xml:space="preserve">
+    <value>Default Binding</value>
+  </data>
+	<data name="TwoWayBinding" xml:space="preserve">
+    <value>Two-Way Binding</value>
+  </data>
+	<data name="OneTimeBinding" xml:space="preserve">
+    <value>One-Time Binding</value>
+  </data>
+	<data name="OneWayBinding" xml:space="preserve">
+    <value>One-Way Binding</value>
+  </data>
+	<data name="Triggers" xml:space="preserve">
+    <value>Triggers</value>
+  </data>
+	<data name="LanguageChangedMessage" xml:space="preserve">
+    <value>Interface language changed</value>
+  </data>
+
+	<!-- DefaultBindingView -->
+	<data name="DefaultBindingTitle" xml:space="preserve">
+    <value>Default Binding Demo</value>
+  </data>
+	<data name="WhatIsDefaultBinding" xml:space="preserve">
+    <value>What is Default Binding?</value>
+  </data>
+	<data name="DefaultBindingDescription" xml:space="preserve">
+    <value>Default binding in WPF is TwoWay for editable controls (TextBox, CheckBox, etc.) and OneWay for read-only elements. Source update occurs on focus loss for TextBox.</value>
+  </data>
+	<data name="DirectBindingToViewModel" xml:space="preserve">
+    <value>Direct Binding to ViewModel Property</value>
+  </data>
+	<data name="TextBoxWithDefaultBinding" xml:space="preserve">
+    <value>TextBox with default binding:</value>
+  </data>
+	<data name="ValueUpdatesOnLostFocus" xml:space="preserve">
+    <value>Value updates on focus loss</value>
+  </data>
+	<data name="DisplayedText" xml:space="preserve">
+    <value>Displayed text (bound to the same property):</value>
+  </data>
+	<data name="SliderWithDefaultBinding" xml:space="preserve">
+    <value>Slider with default binding</value>
+  </data>
+	<data name="ElementToElementBindingExample" xml:space="preserve">
+    <value>Element-to-Element Binding Example</value>
+  </data>
+	<data name="SourceTextBox" xml:space="preserve">
+    <value>Source TextBox:</value>
+  </data>
+	<data name="TargetTextBlock" xml:space="preserve">
+    <value>Target TextBlock (bound to source TextBox):</value>
+  </data>
+	<data name="ElementToElementBindingDescription" xml:space="preserve">
+    <value>This demonstrates direct element-to-element binding without using ViewModel</value>
+  </data>
+
+	<!-- TwoWayBindingView -->
+	<data name="TwoWayBindingTitle" xml:space="preserve">
+    <value>Two-Way Binding Demo</value>
+  </data>
+	<data name="WhatIsTwoWayBinding" xml:space="preserve">
+    <value>What is Two-Way Binding?</value>
+  </data>
+	<data name="TwoWayBindingDescription" xml:space="preserve">
+    <value>Two-way binding synchronizes source and target. Changes in the UI update the ViewModel, and changes in the ViewModel automatically update the UI.</value>
+  </data>
+	<data name="UserInformation" xml:space="preserve">
+    <value>User Information</value>
+  </data>
+	<data name="FirstName" xml:space="preserve">
+    <value>First Name:</value>
+  </data>
+	<data name="LastName" xml:space="preserve">
+    <value>Last Name:</value>
+  </data>
+	<data name="FullName" xml:space="preserve">
+    <value>Full Name:</value>
+  </data>
+	<data name="FullNameAutoUpdate" xml:space="preserve">
+    <value>Type text in the fields above - full name updates automatically!</value>
+  </data>
+	<data name="CheckBoxBinding" xml:space="preserve">
+    <value>CheckBox Binding</value>
+  </data>
+	<data name="EnableFeature" xml:space="preserve">
+    <value>Enable Feature</value>
+  </data>
+	<data name="SliderBinding" xml:space="preserve">
+    <value>Slider Binding</value>
+  </data>
+
+	<!-- OneTimeBindingView -->
+	<data name="OneTimeBindingTitle" xml:space="preserve">
+    <value>One-Time Binding Demo</value>
+  </data>
+	<data name="WhatIsOneTimeBinding" xml:space="preserve">
+    <value>What is One-Time Binding?</value>
+  </data>
+	<data name="OneTimeBindingDescription" xml:space="preserve">
+    <value>One-time binding sets the target property once from the source at initialization. Subsequent source changes do NOT affect the target. Ideal for static content like titles, labels, and configuration data.</value>
+  </data>
+	<data name="StaticInformation" xml:space="preserve">
+    <value>Static Information (set once on load)</value>
+  </data>
+	<data name="WelcomeMessage" xml:space="preserve">
+    <value>Welcome Message:</value>
+  </data>
+	<data name="ApplicationTitle" xml:space="preserve">
+    <value>Application Title:</value>
+  </data>
+	<data name="LoadTime" xml:space="preserve">
+    <value>Load Time:</value>
+  </data>
+	<data name="Version" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+	<data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+	<data name="OneTimeBindingNote" xml:space="preserve">
+    <value>⚠️ Note: This content was set once at application startup and cannot be changed dynamically.</value>
+  </data>
+
+	<!-- OneWayBindingView -->
+	<data name="OneWayBindingTitle" xml:space="preserve">
+    <value>One-Way Binding Demo</value>
+  </data>
+	<data name="WhatIsOneWayBinding" xml:space="preserve">
+    <value>What is One-Way Binding?</value>
+  </data>
+	<data name="OneWayBindingDescription" xml:space="preserve">
+    <value>One-way binding updates the target when the source changes, but target changes do NOT update the source. Useful for displaying read-only derived data.</value>
+  </data>
+	<data name="SourceDataEditable" xml:space="preserve">
+    <value>Source Data (editable)</value>
+  </data>
+	<data name="SourceChangesAffectDisplay" xml:space="preserve">
+    <value>Source changes affect the display below:</value>
+  </data>
+	<data name="ProcessedOutputReadOnly" xml:space="preserve">
+    <value>Processed Output (read-only - one-way binding)</value>
+  </data>
+	<data name="ProcessedTextDescription" xml:space="preserve">
+    <value>Processed text is formed from the source and updates automatically, but cannot be edited directly.</value>
+  </data>
+	<data name="CounterExample" xml:space="preserve">
+    <value>Counter Example</value>
+  </data>
+	<data name="Increment" xml:space="preserve">
+    <value>Increment</value>
+  </data>
+	<data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+	<data name="CounterDescription" xml:space="preserve">
+    <value>Counter value is stored in ViewModel and displayed with one-way binding</value>
+  </data>
+	<data name="SliderExample" xml:space="preserve">
+    <value>Slider Example</value>
+  </data>
+
+	<!-- TriggersView -->
+	<data name="TriggersDemo" xml:space="preserve">
+    <value>Triggers Demo</value>
+  </data>
+	<data name="PropertyTriggers" xml:space="preserve">
+    <value>Property Triggers</value>
+  </data>
+	<data name="PropertyTriggersDescription" xml:space="preserve">
+    <value>Property triggers apply styles when a control property reaches a specific value.</value>
+  </data>
+	<data name="DataTriggers" xml:space="preserve">
+    <value>Data Triggers</value>
+  </data>
+	<data name="DataTriggersDescription" xml:space="preserve">
+    <value>Data triggers respond to changes in ViewModel values.</value>
+  </data>
+	<data name="ShowText" xml:space="preserve">
+    <value>Show Text</value>
+  </data>
+	<data name="TextVisibleWhenChecked" xml:space="preserve">
+    <value>This text is visible when checkbox is checked</value>
+  </data>
+	<data name="MultiDataTrigger" xml:space="preserve">
+    <value>MultiDataTrigger</value>
+  </data>
+	<data name="MultiDataTriggerDescription" xml:space="preserve">
+    <value>MultiDataTrigger applies styles when multiple conditions are met simultaneously.</value>
+  </data>
+	<data name="MultiDataTriggerConditions" xml:space="preserve">
+    <value>Conditions: empty (red), 1-2 characters (orange), 3-20 characters (green), >20 characters (red)</value>
+  </data>
+	<data name="EventTriggers" xml:space="preserve">
+    <value>Event Triggers</value>
+  </data>
+	<data name="EventTriggersDescription" xml:space="preserve">
+    <value>Event triggers respond to mouse events such as hover and selection.</value>
+  </data>
+	<data name="EventTriggersNote" xml:space="preserve">
+    <value>Hover over items for MouseOver trigger, click for selection trigger</value>
+  </data>
+</root>

@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- Основные -->
+  <data name="AppTitle" xml:space="preserve">
+    <value>WPF MVVM Демо - Типы привязок</value>
+  </data>
+  <data name="LanguageSelection" xml:space="preserve">
+    <value>Выбор языка:</value>
+  </data>
+  <data name="Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Английский</value>
+  </data>
+  <data name="DefaultBinding" xml:space="preserve">
+    <value>Привязка по умолчанию</value>
+  </data>
+  <data name="TwoWayBinding" xml:space="preserve">
+    <value>Двухсторонняя привязка</value>
+  </data>
+  <data name="OneTimeBinding" xml:space="preserve">
+    <value>Однократная привязка</value>
+  </data>
+  <data name="OneWayBinding" xml:space="preserve">
+    <value>Однонаправленная привязка</value>
+  </data>
+  <data name="Triggers" xml:space="preserve">
+    <value>Триггеры</value>
+  </data>
+  <data name="LanguageChangedMessage" xml:space="preserve">
+    <value>Язык интерфейса изменен</value>
+  </data>
+  
+  <!-- DefaultBindingView -->
+  <data name="DefaultBindingTitle" xml:space="preserve">
+    <value>Демонстрация привязки по умолчанию</value>
+  </data>
+  <data name="WhatIsDefaultBinding" xml:space="preserve">
+    <value>Что такое привязка по умолчанию?</value>
+  </data>
+  <data name="DefaultBindingDescription" xml:space="preserve">
+    <value>Привязка по умолчанию в WPF - это TwoWay для редактируемых элементов управления (TextBox, CheckBox и т.д.) и OneWay для элементов только для чтения. Обновление источника происходит при потере фокуса для TextBox.</value>
+  </data>
+  <data name="DirectBindingToViewModel" xml:space="preserve">
+    <value>Прямая привязка к свойству ViewModel</value>
+  </data>
+  <data name="TextBoxWithDefaultBinding" xml:space="preserve">
+    <value>TextBox с привязкой по умолчанию:</value>
+  </data>
+  <data name="ValueUpdatesOnLostFocus" xml:space="preserve">
+    <value>Значение обновляется при потере фокуса</value>
+  </data>
+  <data name="DisplayedText" xml:space="preserve">
+    <value>Отображаемый текст (привязан к тому же свойству):</value>
+  </data>
+  <data name="SliderWithDefaultBinding" xml:space="preserve">
+    <value>Ползунок с привязкой по умолчанию</value>
+  </data>
+  <data name="ElementToElementBindingExample" xml:space="preserve">
+    <value>Пример привязки элемент-к-элементу</value>
+  </data>
+  <data name="SourceTextBox" xml:space="preserve">
+    <value>Исходный TextBox:</value>
+  </data>
+  <data name="TargetTextBlock" xml:space="preserve">
+    <value>Целевой TextBlock (привязан к исходному TextBox):</value>
+  </data>
+  <data name="ElementToElementBindingDescription" xml:space="preserve">
+    <value>Это демонстрирует прямую привязку элемент-к-элементу без использования ViewModel</value>
+  </data>
+  
+  <!-- TwoWayBindingView -->
+  <data name="TwoWayBindingTitle" xml:space="preserve">
+    <value>Демонстрация двухсторонней привязки</value>
+  </data>
+  <data name="WhatIsTwoWayBinding" xml:space="preserve">
+    <value>Что такое двухсторонняя привязка?</value>
+  </data>
+  <data name="TwoWayBindingDescription" xml:space="preserve">
+    <value>Двухсторонняя привязка синхронизирует источник и цель. Изменения в интерфейсе обновляют ViewModel, а изменения в ViewModel автоматически обновляют интерфейс.</value>
+  </data>
+  <data name="UserInformation" xml:space="preserve">
+    <value>Информация о пользователе</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Имя:</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Фамилия:</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Полное имя:</value>
+  </data>
+  <data name="FullNameAutoUpdate" xml:space="preserve">
+    <value>Вводите текст в поля выше - полное имя обновляется автоматически!</value>
+  </data>
+  <data name="CheckBoxBinding" xml:space="preserve">
+    <value>Привязка флажка</value>
+  </data>
+  <data name="EnableFeature" xml:space="preserve">
+    <value>Включить функцию</value>
+  </data>
+  <data name="SliderBinding" xml:space="preserve">
+    <value>Привязка ползунка</value>
+  </data>
+  
+  <!-- OneTimeBindingView -->
+  <data name="OneTimeBindingTitle" xml:space="preserve">
+    <value>Демонстрация однократной привязки</value>
+  </data>
+  <data name="WhatIsOneTimeBinding" xml:space="preserve">
+    <value>Что такое однократная привязка?</value>
+  </data>
+  <data name="OneTimeBindingDescription" xml:space="preserve">
+    <value>Однократная привязка устанавливает свойство цели один раз из источника при инициализации. Последующие изменения источника НЕ влияют на цель. Идеально подходит для статического контента, такого как заголовки, метки и данные конфигурации.</value>
+  </data>
+  <data name="StaticInformation" xml:space="preserve">
+    <value>Статическая информация (устанавливается один раз при загрузке)</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Приветственное сообщение:</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Название приложения:</value>
+  </data>
+  <data name="LoadTime" xml:space="preserve">
+    <value>Время загрузки:</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Версия:</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="OneTimeBindingNote" xml:space="preserve">
+    <value>⚠️ Примечание: Этот контент был установлен один раз при запуске приложения и не может быть изменен динамически.</value>
+  </data>
+  
+  <!-- OneWayBindingView -->
+  <data name="OneWayBindingTitle" xml:space="preserve">
+    <value>Демонстрация однонаправленной привязки</value>
+  </data>
+  <data name="WhatIsOneWayBinding" xml:space="preserve">
+    <value>Что такое однонаправленная привязка?</value>
+  </data>
+  <data name="OneWayBindingDescription" xml:space="preserve">
+    <value>Однонаправленная привязка обновляет цель при изменении источника, но изменения цели НЕ обновляют источник. Полезно для отображения производных данных, доступных только для чтения.</value>
+  </data>
+  <data name="SourceDataEditable" xml:space="preserve">
+    <value>Исходные данные (редактируемые)</value>
+  </data>
+  <data name="SourceChangesAffectDisplay" xml:space="preserve">
+    <value>Изменения источника влияют на отображение ниже:</value>
+  </data>
+  <data name="ProcessedOutputReadOnly" xml:space="preserve">
+    <value>Обработанный вывод (только для чтения - однонаправленная привязка)</value>
+  </data>
+  <data name="ProcessedTextDescription" xml:space="preserve">
+    <value>Обработанный текст формируется из источника и обновляется автоматически, но не может быть отредактирован напрямую.</value>
+  </data>
+  <data name="CounterExample" xml:space="preserve">
+    <value>Пример счетчика</value>
+  </data>
+  <data name="Increment" xml:space="preserve">
+    <value>Увеличить</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Сбросить</value>
+  </data>
+  <data name="CounterDescription" xml:space="preserve">
+    <value>Значение счетчика хранится в ViewModel и отображается с однонаправленной привязкой</value>
+  </data>
+  <data name="SliderExample" xml:space="preserve">
+    <value>Пример ползунка</value>
+  </data>
+  
+  <!-- TriggersView -->
+  <data name="TriggersDemo" xml:space="preserve">
+    <value>Демонстрация триггеров</value>
+  </data>
+  <data name="PropertyTriggers" xml:space="preserve">
+    <value>Property Триггеры</value>
+  </data>
+  <data name="PropertyTriggersDescription" xml:space="preserve">
+    <value>Property триггеры применяют стили, когда свойство элемента управления достигает определенного значения.</value>
+  </data>
+  <data name="DataTriggers" xml:space="preserve">
+    <value>Data Триггеры</value>
+  </data>
+  <data name="DataTriggersDescription" xml:space="preserve">
+    <value>Data триггеры реагируют на изменения значений в ViewModel.</value>
+  </data>
+  <data name="ShowText" xml:space="preserve">
+    <value>Показать текст</value>
+  </data>
+  <data name="TextVisibleWhenChecked" xml:space="preserve">
+    <value>Этот текст виден, когда флажок установлен</value>
+  </data>
+  <data name="MultiDataTrigger" xml:space="preserve">
+    <value>MultiDataTrigger</value>
+  </data>
+  <data name="MultiDataTriggerDescription" xml:space="preserve">
+    <value>MultiDataTrigger применяет стили, когда выполняются несколько условий одновременно.</value>
+  </data>
+  <data name="MultiDataTriggerConditions" xml:space="preserve">
+    <value>Условия: пусто (красный), 1-2 символа (оранжевый), 3-20 символов (зеленый), >20 символов (красный)</value>
+  </data>
+  <data name="EventTriggers" xml:space="preserve">
+    <value>Event Триггеры</value>
+  </data>
+  <data name="EventTriggersDescription" xml:space="preserve">
+    <value>Event триггеры реагируют на события мыши, такие как наведение и выбор.</value>
+  </data>
+  <data name="EventTriggersNote" xml:space="preserve">
+    <value>Наведите курсор на элементы для отображения триггера MouseOver, нажмите для отображения триггера выбора</value>
+  </data>
+</root>
