@@ -1,33 +1,66 @@
 <UserControl x:Class="LR_1_Default.Views.DefaultBindingView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:loc="clr-namespace:LR_1_Default.MarkupExtensions"
              Background="#ECF0F1">
 
     <ScrollViewer>
         <StackPanel Margin="20">
-            <TextBlock Text="Демонстрация привязки по умолчанию" FontSize="24" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20"/>
+            <TextBlock FontSize="24" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20">
+                <TextBlock.Text>
+                    <loc:LibraryLocExtension Key="DefaultBindingTitle"/>
+                </TextBlock.Text>
+            </TextBlock>
 
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <TextBlock Text="Что такое привязка по умолчанию?" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
-                    <TextBlock Text="Привязка по умолчанию в WPF - это TwoWay для редактируемых элементов управления (TextBox, CheckBox и т.д.) и OneWay для элементов только для чтения. Обновление источника происходит при потере фокуса для TextBox." TextWrapping="Wrap" Margin="0,0,0,10"/>
+                    <TextBlock FontWeight="Bold" FontSize="16" Margin="0,0,0,10">
+                        <TextBlock.Text>
+                            <loc:LibraryLocExtension Key="WhatIsDefaultBinding"/>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap" Margin="0,0,0,10">
+                        <TextBlock.Text>
+                            <loc:LibraryLocExtension Key="DefaultBindingDescription"/>
+                        </TextBlock.Text>
+                    </TextBlock>
                 </StackPanel>
             </Border>
 
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <Label Content="Прямая привязка к свойству ViewModel"/>
+                    <Label>
+                        <Label.Content>
+                            <loc:LibraryLocExtension Key="DirectBindingToViewModel"/>
+                        </Label.Content>
+                    </Label>
 
-                    <TextBlock Text="TextBox с привязкой по умолчанию:" FontWeight="SemiBold" Margin="0,5,0,0"/>
+                    <TextBlock FontWeight="SemiBold" Margin="0,5,0,0">
+                        <TextBlock.Text>
+                            <loc:LibraryLocExtension Key="TextBoxWithDefaultBinding"/>
+                        </TextBlock.Text>
+                    </TextBlock>
                     <TextBox Text="{Binding UserInput, UpdateSourceTrigger=LostFocus}" Height="35"/>
-                    <TextBlock Text="Значение обновляется при потере фокуса" FontStyle="Italic" Foreground="Gray" Margin="5,0,0,0"/>
+                    <TextBlock FontStyle="Italic" Foreground="Gray" Margin="5,0,0,0">
+                        <TextBlock.Text>
+                            <loc:LibraryLocExtension Key="ValueUpdatesOnLostFocus"/>
+                        </TextBlock.Text>
+                    </TextBlock>
 
-                    <TextBlock Text="Отображаемый текст (привязан к тому же свойству):" FontWeight="SemiBold" Margin="0,15,0,0"/>
+                    <TextBlock FontWeight="SemiBold" Margin="0,15,0,0">
+                        <TextBlock.Text>
+                            <loc:LibraryLocExtension Key="DisplayedText"/>
+                        </TextBlock.Text>
+                    </TextBlock>
                     <TextBox Text="{Binding UserInput, Mode=OneWay}" Height="35" IsReadOnly="True" Background="#F0F0F0"/>
 
                     <Separator Margin="0,15,0,15"/>
 
-                    <Label Content="Ползунок с привязкой по умолчанию"/>
+                    <Label>
+                        <Label.Content>
+                            <loc:LibraryLocExtension Key="SliderWithDefaultBinding"/>
+                        </Label.Content>
+                    </Label>
                     <Slider Minimum="0" Maximum="100" Value="{Binding SliderValue}" Height="30" Margin="5"/>
                     <TextBlock Text="{Binding SliderValueDisplay}" FontWeight="Bold" HorizontalAlignment="Center"/>
                 </StackPanel>
@@ -35,12 +68,28 @@
 
             <Border Background="White" CornerRadius="8" Padding="15">
                 <StackPanel>
-                    <Label Content="Пример привязки элемент-к-элементу"/>
-                    <TextBlock Text="Исходный TextBox:" FontWeight="SemiBold"/>
+                    <Label>
+                        <Label.Content>
+                            <loc:LibraryLocExtension Key="ElementToElementBindingExample"/>
+                        </Label.Content>
+                    </Label>
+                    <TextBlock FontWeight="SemiBold">
+                        <TextBlock.Text>
+                            <loc:LibraryLocExtension Key="SourceTextBox"/>
+                        </TextBlock.Text>
+                    </TextBlock>
                     <TextBox x:Name="SourceTextBox" Height="35"/>
-                    <TextBlock Text="Целевой TextBlock (привязан к исходному TextBox):" FontWeight="SemiBold" Margin="0,10,0,0"/>
+                    <TextBlock FontWeight="SemiBold" Margin="0,10,0,0">
+                        <TextBlock.Text>
+                            <loc:LibraryLocExtension Key="TargetTextBlock"/>
+                        </TextBlock.Text>
+                    </TextBlock>
                     <TextBlock Text="{Binding Text, ElementName=SourceTextBox}" Background="#F0F0F0" Padding="8" Margin="5"/>
-                    <TextBlock Text="Это демонстрирует прямую привязку элемент-к-элементу без использования ViewModel" FontStyle="Italic" Foreground="Gray" Margin="5,5,0,0"/>
+                    <TextBlock FontStyle="Italic" Foreground="Gray" Margin="5,5,0,0">
+                        <TextBlock.Text>
+                            <loc:LibraryLocExtension Key="ElementToElementBindingDescription"/>
+                        </TextBlock.Text>
+                    </TextBlock>
                 </StackPanel>
             </Border>
         </StackPanel>

@@ -1,22 +1,39 @@
 <UserControl x:Class="LR_1_Default.Views.TwoWayBindingView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:loc="clr-namespace:LR_1_Default.MarkupExtensions"
              Background="#ECF0F1">
 
     <ScrollViewer>
         <StackPanel Margin="20">
-            <TextBlock Text="Демонстрация двухсторонней привязки" FontSize="24" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20"/>
+            <TextBlock FontSize="24" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20">
+                <TextBlock.Text>
+                    <loc:LibraryLocExtension Key="TwoWayBindingTitle"/>
+                </TextBlock.Text>
+            </TextBlock>
 
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <TextBlock Text="Что такое двухсторонняя привязка?" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
-                    <TextBlock Text="Двухсторонняя привязка синхронизирует источник и цель. Изменения в интерфейсе обновляют ViewModel, а изменения в ViewModel автоматически обновляют интерфейс." TextWrapping="Wrap"/>
+                    <TextBlock FontWeight="Bold" FontSize="16" Margin="0,0,0,10">
+                        <TextBlock.Text>
+                            <loc:LibraryLocExtension Key="WhatIsTwoWayBinding"/>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap">
+                        <TextBlock.Text>
+                            <loc:LibraryLocExtension Key="TwoWayBindingDescription"/>
+                        </TextBlock.Text>
+                    </TextBlock>
                 </StackPanel>
             </Border>
 
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <Label Content="Информация о пользователе"/>
+                    <Label>
+                        <Label.Content>
+                            <loc:LibraryLocExtension Key="UserInformation"/>
+                        </Label.Content>
+                    </Label>
 
                     <Grid Margin="0,10,0,0">
                         <Grid.ColumnDefinitions>
@@ -29,31 +46,59 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Text="Имя:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold">
+                            <TextBlock.Text>
+                                <loc:LibraryLocExtension Key="FirstName"/>
+                            </TextBlock.Text>
+                        </TextBlock>
                         <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="1" Height="35" Margin="5,0,0,0"/>
 
-                        <TextBlock Text="Фамилия:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,10,0,0"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,10,0,0">
+                            <TextBlock.Text>
+                                <loc:LibraryLocExtension Key="LastName"/>
+                            </TextBlock.Text>
+                        </TextBlock>
                         <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" Height="35" Margin="5,10,0,0"/>
 
-                        <TextBlock Text="Полное имя:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,10,0,0"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0,10,0,0">
+                            <TextBlock.Text>
+                                <loc:LibraryLocExtension Key="FullName"/>
+                            </TextBlock.Text>
+                        </TextBlock>
                         <TextBlock Text="{Binding FullName}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="5,10,0,0" FontSize="16" FontWeight="Bold" Foreground="#3498DB"/>
                     </Grid>
 
-                    <TextBlock Text="Вводите текст в поля выше - полное имя обновляется автоматически!" FontStyle="Italic" Foreground="Gray" Margin="5,15,0,0"/>
+                    <TextBlock FontStyle="Italic" Foreground="Gray" Margin="5,15,0,0">
+                        <TextBlock.Text>
+                            <loc:LibraryLocExtension Key="FullNameAutoUpdate"/>
+                        </TextBlock.Text>
+                    </TextBlock>
                 </StackPanel>
             </Border>
 
             <Border Background="White" CornerRadius="8" Padding="15" Margin="0,0,0,15">
                 <StackPanel>
-                    <Label Content="Привязка флажка"/>
-                    <CheckBox Content="Включить функцию" IsChecked="{Binding IsChecked}" Margin="5"/>
+                    <Label>
+                        <Label.Content>
+                            <loc:LibraryLocExtension Key="CheckBoxBinding"/>
+                        </Label.Content>
+                    </Label>
+                    <CheckBox Margin="5">
+                        <CheckBox.Content>
+                            <loc:LibraryLocExtension Key="EnableFeature"/>
+                        </CheckBox.Content>
+                    </CheckBox>
                     <TextBlock Text="{Binding StatusText}" FontWeight="Bold" Margin="5,5,0,0"/>
                 </StackPanel>
             </Border>
 
             <Border Background="White" CornerRadius="8" Padding="15">
                 <StackPanel>
-                    <Label Content="Привязка ползунка"/>
+                    <Label>
+                        <Label.Content>
+                            <loc:LibraryLocExtension Key="SliderBinding"/>
+                        </Label.Content>
+                    </Label>
                     <Slider Minimum="0" Maximum="100" Value="{Binding ProgressValue}" Height="30"/>
                     <TextBlock Text="{Binding ProgressDisplay}" HorizontalAlignment="Center" FontWeight="Bold" Margin="5"/>
                 </StackPanel>
