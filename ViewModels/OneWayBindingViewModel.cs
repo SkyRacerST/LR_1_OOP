@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using LocalizationLibrary;
 
 namespace LR_1_Default.ViewModels
 {
@@ -23,9 +24,10 @@ namespace LR_1_Default.ViewModels
         {
             get
             {
+                var loc = LocalizationManager.Instance;
                 if (string.IsNullOrEmpty(_sourceText))
-                    return "Обработано: (пусто) | Длина: 0";
-                return $"Обработано: {_sourceText.ToUpper()} | Длина: {_sourceText.Length}";
+                    return $"{loc["Processed"]}: ({loc["Empty"]}) | {loc["Length"]}: 0";
+                return $"{loc["Processed"]}: {_sourceText.ToUpper()} | {loc["Length"]}: {_sourceText.Length}";
             }
         }
 
@@ -40,7 +42,7 @@ namespace LR_1_Default.ViewModels
             }
         }
 
-        public string CounterDisplay => $"Количество кликов: {_counter}";
+        public string CounterDisplay => $"{LocalizationManager.Instance["ClickCount"]}: {_counter}";
 
         public double SliderValue
         {
@@ -53,13 +55,24 @@ namespace LR_1_Default.ViewModels
             }
         }
 
-        public string SliderDisplay => $"Текущее значение: {_sliderValue:F0}";
+        public string SliderDisplay => $"{LocalizationManager.Instance["CurrentValue"]}: {_sliderValue:F0}";
 
         public OneWayBindingViewModel()
         {
-            _sourceText = "Введите текст здесь...";
+            _sourceText = LocalizationManager.Instance["EnterTextHere"];
             _counter = 0;
             _sliderValue = 50;
+
+            LocalizationManager.Instance.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == "Item[]")
+                {
+                    SourceText = LocalizationManager.Instance["EnterTextHere"];
+                    OnPropertyChanged(nameof(ProcessedText));
+                    OnPropertyChanged(nameof(CounterDisplay));
+                    OnPropertyChanged(nameof(SliderDisplay));
+                }
+            };
         }
 
         public void IncrementCounter()

@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using LocalizationLibrary;
 
 namespace LR_1_Default.ViewModels
 {
@@ -14,11 +15,10 @@ namespace LR_1_Default.ViewModels
             {
                 _userInput = value;
                 OnPropertyChanged(nameof(UserInput));
-                OnPropertyChanged(nameof(DisplayText)); // Обновляем DisplayText при изменении UserInput
+                OnPropertyChanged(nameof(DisplayText));
             }
         }
 
-        // DisplayText теперь просто возвращает UserInput
         public string DisplayText => _userInput;
 
         public int SliderValue
@@ -32,12 +32,22 @@ namespace LR_1_Default.ViewModels
             }
         }
 
-        public string SliderValueDisplay => $"Значение: {SliderValue}";
+        public string SliderValueDisplay => $"{LocalizationManager.Instance["SliderValue"]}: {SliderValue}";
 
         public DefaultBindingViewModel()
         {
-            _userInput = "Введите текст...";
+            _userInput = LocalizationManager.Instance["DefaultInputText"];
             _sliderValue = 50;
+
+            LocalizationManager.Instance.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == "Item[]")
+                {
+                    // Принудительно обновляем значение из ресурсов
+                    UserInput = LocalizationManager.Instance["DefaultInputText"];
+                    OnPropertyChanged(nameof(SliderValueDisplay));
+                }
+            };
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
