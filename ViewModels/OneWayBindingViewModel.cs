@@ -8,6 +8,7 @@ namespace LR_1_Default.ViewModels
         private string _sourceText;
         private int _counter;
         private double _sliderValue;
+        private bool _isUserModified;
 
         public string SourceText
         {
@@ -15,6 +16,7 @@ namespace LR_1_Default.ViewModels
             set
             {
                 _sourceText = value;
+                _isUserModified = true;
                 OnPropertyChanged(nameof(SourceText));
                 OnPropertyChanged(nameof(ProcessedText));
             }
@@ -59,6 +61,7 @@ namespace LR_1_Default.ViewModels
 
         public OneWayBindingViewModel()
         {
+            _isUserModified = false;
             _sourceText = LocalizationManager.Instance["EnterTextHere"];
             _counter = 0;
             _sliderValue = 50;
@@ -67,7 +70,11 @@ namespace LR_1_Default.ViewModels
             {
                 if (e.PropertyName == "Item[]")
                 {
-                    SourceText = LocalizationManager.Instance["EnterTextHere"];
+                    if (!_isUserModified)
+                    {
+                        _sourceText = LocalizationManager.Instance["EnterTextHere"];
+                        OnPropertyChanged(nameof(SourceText));
+                    }
                     OnPropertyChanged(nameof(ProcessedText));
                     OnPropertyChanged(nameof(CounterDisplay));
                     OnPropertyChanged(nameof(SliderDisplay));
